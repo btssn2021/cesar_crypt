@@ -25,7 +25,10 @@ char *saisirdirection() {
 }
 char *decalerPremiereLettre()
 {
-
+//1-récupérer le premier caractere de la chaine
+//2-la retrouver dans l'alphabet
+//3-Décaler de 1
+//4-Récupérer le caractère décaler
 
 }
 
