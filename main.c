@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 char chainesaisie[255];
 int decalage;
 char direction;
@@ -26,10 +28,21 @@ char *saisirdirection() {
 char *decalerPremiereLettre()
 {
 //1-récupérer le premier caractere de la chaine
-//2-la retrouver dans l'alphabet
+char firstchar=chainesaisie[0];
+int positiontrouve=0;
+//2-le retrouver dans l'alphabet
+for(int i=0;i<strlen(alphabet);i++)
+{
+    if(alphabet[i]==firstchar)
+    {
+        positiontrouve=i;
+        break;
+    }
+}
 //3-Décaler de 1
-//4-Récupérer le caractère décaler
-
+chainesaisie[0]=alphabet[positiontrouve+1];
+//4-Récupérer la chaine décalée
+    return chainesaisie;
 }
 
 int main() {
