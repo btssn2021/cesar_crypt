@@ -2,6 +2,8 @@
 #include <string.h>
 
 char chainesaisie[255];
+char *decalerPremiereLettre();
+char *decalerToutesLesLettres();
 int decalage;
 char direction;
 char alphabet[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'};
@@ -27,9 +29,10 @@ char *saisirdirection() {
 }
 char *decalerPremiereLettre()
 {
+    int positiontrouve=0;
 //1-récupérer le premier caractere de la chaine
 char firstchar=chainesaisie[0];
-int positiontrouve=0;
+
 //2-le retrouver dans l'alphabet
 for(int i=0;i<strlen(alphabet);i++)
 {
@@ -41,11 +44,18 @@ for(int i=0;i<strlen(alphabet);i++)
 }
 //3-Décaler de 1
 chainesaisie[0]=alphabet[positiontrouve+1];
+
 //4-Récupérer la chaine décalée
     return chainesaisie;
 }
 
+char *decalerToutesLesLettres()
+{
+//TO DO
+}
+
 int main() {
-    printf("Hello, World!\n");
+    saisirchaine();
+    printf("%s",decalerPremiereLettre());
     return 0;
 }
