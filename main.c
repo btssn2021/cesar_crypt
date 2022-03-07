@@ -51,11 +51,27 @@ chainesaisie[0]=alphabet[positiontrouve+1];
 
 char *decalerToutesLesLettres()
 {
-//TO DO
+    int positiontrouve=0;
+    for(int s=0;s<strlen(chainesaisie);s++) {
+//1-récupérer le premier caractere de la chaine
+        char charS = chainesaisie[s];
+
+//2-le retrouver dans l'alphabet
+        for (int i = 0; i < strlen(alphabet); i++) {
+            if (alphabet[i] == charS) {
+                positiontrouve = i;
+                break;
+            }
+        }
+//3-Décaler de 1
+        chainesaisie[s] = alphabet[positiontrouve + 1];
+    }
+//4-Récupérer la chaine décalée
+    return chainesaisie;
 }
 
 int main() {
     saisirchaine();
-    printf("%s",decalerPremiereLettre());
+    printf("%s",decalerToutesLesLettres());
     return 0;
 }
