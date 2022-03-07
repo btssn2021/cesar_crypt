@@ -4,7 +4,8 @@
 char chainesaisie[255];
 char *decalerPremiereLettre();
 char *decalerToutesLesLettres();
-char *decalerToutesLesLettresAvecDirection(int);
+char *decalerToutesLesLettresAvecDecalage(int);
+char *decalerToutesLesLettresAvecDecalageEtDirection(int,int);
 int decalage;
 char direction;
 char alphabet[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'};
@@ -85,14 +86,33 @@ char *decalerToutesLesLettresAvecDecalage(int decalage)
             }
         }
 //3-Décaler de 1
-        chainesaisie[s] = alphabet[positiontrouve + 1];
+        chainesaisie[s] = alphabet[positiontrouve + decalage];
     }
 //4-Récupérer la chaine décalée
     return chainesaisie;
 }
+char *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,int direction)
+{
+    int positiontrouve=0;
+    for(int s=0;s<strlen(chainesaisie);s++) {
+//1-récupérer le premier caractere de la chaine
+        char charS = chainesaisie[s];
 
+//2-le retrouver dans l'alphabet
+        for (int i = 0; i < strlen(alphabet); i++) {
+            if (alphabet[i] == charS) {
+                positiontrouve = i;
+                break;
+            }
+        }
+//3-Décaler de 1
+        chainesaisie[s] = alphabet[positiontrouve + decalage];
+    }
+//4-Récupérer la chaine décalée
+    return chainesaisie;
+}
 int main() {
     saisirchaine();
-    printf("%s",decalerToutesLesLettres());
+    printf("%s", decalerToutesLesLettresAvecDecalage(*saisirdecalage()));
     return 0;
 }
