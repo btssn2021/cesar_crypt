@@ -109,6 +109,7 @@ char *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,char direction
         if(direction=='d')
         chainesaisie[s] = alphabet[positiontrouve + decalage];
         else
+            if(direction=='g')
             chainesaisie[s] = alphabet[positiontrouve - decalage];
     }
 //4-Récupérer la chaine déchar *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,int direction)calée
