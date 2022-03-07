@@ -5,7 +5,7 @@ char chainesaisie[255];
 char *decalerPremiereLettre();
 char *decalerToutesLesLettres();
 char *decalerToutesLesLettresAvecDecalage(int);
-char *decalerToutesLesLettresAvecDecalageEtDirection(int,int);
+char *decalerToutesLesLettresAvecDecalageEtDirection(int,char);
 int decalage;
 char direction;
 char alphabet[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'};
@@ -91,7 +91,7 @@ char *decalerToutesLesLettresAvecDecalage(int decalage)
 //4-Récupérer la chaine décalée
     return chainesaisie;
 }
-char *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,int direction)
+char *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,char direction)
 {
     int positiontrouve=0;
     for(int s=0;s<strlen(chainesaisie);s++) {
@@ -106,13 +106,16 @@ char *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,int direction)
             }
         }
 //3-Décaler de 1
+        if(direction=='d')
         chainesaisie[s] = alphabet[positiontrouve + decalage];
+        else
+            chainesaisie[s] = alphabet[positiontrouve - decalage];
     }
-//4-Récupérer la chaine décalée
+//4-Récupérer la chaine déchar *decalerToutesLesLettresAvecDecalageEtDirection(int decalage,int direction)calée
     return chainesaisie;
 }
 int main() {
     saisirchaine();
-    printf("%s", decalerToutesLesLettresAvecDecalage(*saisirdecalage()));
+    printf("%s", decalerToutesLesLettresAvecDecalageEtDirection(*saisirdecalage(),*saisirdirection()));
     return 0;
 }
