@@ -70,7 +70,7 @@ char *decalerToutesLesLettres()
 //4-Récupérer la chaine décalée
     return chainesaisie;
 }
-char *decalerToutesLesLettresAvecDirection(int decalage)
+char *decalerToutesLesLettresAvecDecalage(int decalage)
 {
     //TODO
 }
